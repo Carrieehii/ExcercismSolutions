@@ -1,0 +1,45 @@
+public static class LineUp
+{
+    public static string Format(string name, int number)
+    {
+        var st = "st";
+        var nd = "nd";
+        var rd = "rd";
+        var th = "th";
+        var StrLength = number.ToString().Length; //Finds out if number is singl, double or triple digits.
+        var convertStr = number.ToString(); //Converts number to string so user can index
+                 
+        //if number is 1 digit and ends in 1 append "st"
+        if (StrLength == 1)
+        {
+            if (number == 1) return $"{name}, you are the {number}{st} customer we serve today. Thank you!";
+            else if (number == 2) return $"{name}, you are the {number}{nd} customer we serve today. Thank you!";  
+            else if (number == 3) return $"{name}, you are the {number}{rd} customer we serve today. Thank you!";
+            else return $"{name}, you are the {number}{th} customer we serve today. Thank you!";
+        }    
+        else if (StrLength == 2 && convertStr[0] == '1')
+        {
+           if (number >= 11 && number <=19 ) return $"{name}, you are the {number}{th} customer we serve today. Thank you!";
+           else return $"{name}, you are the {number}{th} customer we serve today. Thank you!";
+        }
+        else if (StrLength == 2 && number >= 20 && number <=99)
+        {
+           if (convertStr[1] == '1')return $"{name}, you are the {number}{st} customer we serve today. Thank you!"; 
+           else if (convertStr[1] == '2') return $"{name}, you are the {number}{nd} customer we serve today. Thank you!";
+           else if (convertStr[1] == '3') return $"{name}, you are the {number}{rd} customer we serve today. Thank you!";
+           else return $"{name}, you are the {number}{th} customer we serve today. Thank you!";       
+        }
+        else if (StrLength == 3)
+        {
+            if (convertStr[1] == '1') return $"{name}, you are the {number}{th} customer we serve today. Thank you!";
+            else if (convertStr[2] == '1') return $"{name}, you are the {number}{st} customer we serve today. Thank you!";
+            else if (convertStr[2] == '2') return $"{name}, you are the {number}{nd} customer we serve today. Thank you!";
+            else if (convertStr[2] == '3') return $"{name}, you are the {number}{rd} customer we serve today. Thank you!";
+            else return $"{name}, you are the {number}{th} customer we serve today. Thank you!";
+        }
+        else return $"{name}, you are the {number}{th} customer we serve today. Thank you!";
+                
+        }
+     
+
+}       
