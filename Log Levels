@@ -1,0 +1,23 @@
+static class LogLine
+{
+    public static string Message(string logLine)
+    {
+        var endLine = logLine.IndexOf(':');
+        var result = logLine.Substring(endLine+2);
+        return result.Trim();
+    }
+
+    public static string LogLevel(string logLine)
+    {
+        var levelLog = logLine.LastIndexOf(':');
+        var levelResult = logLine.Substring(0, levelLog);
+        return levelResult.ToLower().Substring(1, levelResult.IndexOf(']')-1);
+    }
+
+    public static string Reformat(string logLine)
+    { 
+     var message = Message(logLine); 
+     var infoMessage = LogLevel(logLine);
+     return $"{message} ({infoMessage})";   
+    }
+}
