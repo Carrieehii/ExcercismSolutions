@@ -1,0 +1,13 @@
+class Lasagna
+{
+    // TODO: define the 'ExpectedMinutesInOven()' method
+    int ExpectedMinutes = 40;
+    public int ExpectedMinutesInOven() => ExpectedMinutes;
+    // TODO: define the 'RemainingMinutesInOven()' method
+    public int RemainingMinutesInOven(int RemainingMinutes) => ExpectedMinutes - RemainingMinutes;
+    // TODO: define the 'PreparationTimeInMinutes()' method
+    int PrepMinutes = 2;
+    public int PreparationTimeInMinutes(int Layers) => PrepMinutes * Layers;
+    // TODO: define the 'ElapsedTimeInMinutes()' method
+    public int ElapsedTimeInMinutes(int Layers, int MinutesInOven) => PrepMinutes*Layers + MinutesInOven;
+}
